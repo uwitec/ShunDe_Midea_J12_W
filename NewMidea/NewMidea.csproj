@@ -1,0 +1,355 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="2.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{48777C6D-21B2-45CC-B6C8-638EC4380A3F}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>NewMidea</RootNamespace>
+    <AssemblyName>NewMidea</AssemblyName>
+    <ApplicationIcon>ai_ %2814%29.ico</ApplicationIcon>
+    <SignAssembly>false</SignAssembly>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="adodb, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.DLL</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Axis.cs" />
+    <Compile Include="BlinkLed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BlinkLed.designer.cs">
+      <DependentUpon>BlinkLed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="c7017.cs" />
+    <Compile Include="cAiNuo97010.cs" />
+    <Compile Include="cAPI.cs" />
+    <Compile Include="cBarcode.cs" />
+    <Compile Include="cData.cs" />
+    <Compile Include="cError.cs" />
+    <Compile Include="cFt2010.cs" />
+    <Compile Include="cFXPlc.cs" />
+    <Compile Include="Channel.cs" />
+    <Compile Include="cHJTempBoard.cs" />
+    <Compile Include="cHuaWeiMachine.cs" />
+    <Compile Include="cLowVolOneByOne.cs" />
+    <Compile Include="cMain.cs" />
+    <Compile Include="cMideaSnCode.cs" />
+    <Compile Include="cNum.cs" />
+    <Compile Include="cOmron.cs" />
+    <Compile Include="cPanasonic.cs" />
+    <Compile Include="cPQMachine.cs" />
+    <Compile Include="cPrint.cs" />
+    <Compile Include="cQuXian.cs" />
+    <Compile Include="cSn000.cs" />
+    <Compile Include="cSnBoard.cs" />
+    <Compile Include="cSset.cs" />
+    <Compile Include="cStandarBoard.cs" />
+    <Compile Include="cUdpSock.cs" />
+    <Compile Include="cWbGonglv.cs" />
+    <Compile Include="cXml.cs" />
+    <Compile Include="frmBarSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBarSet.designer.cs">
+      <DependentUpon>frmBarSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDataShow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDataShow.designer.cs">
+      <DependentUpon>frmDataShow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHelp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelp.designer.cs">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmJiLiang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJiLiang.designer.cs">
+      <DependentUpon>frmJiLiang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmKB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmKB.designer.cs">
+      <DependentUpon>frmKB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmList.designer.cs">
+      <DependentUpon>frmList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMideaSn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMideaSn.Designer.cs">
+      <DependentUpon>frmMideaSn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassWord.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPassWord.designer.cs">
+      <DependentUpon>frmPassWord.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuXian.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuXian.designer.cs">
+      <DependentUpon>frmQuXian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReport.Designer.cs">
+      <DependentUpon>frmReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSend.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSend.designer.cs">
+      <DependentUpon>frmSend.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSet.designer.cs">
+      <DependentUpon>frmSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSys.designer.cs">
+      <DependentUpon>frmSys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTest.Designer.cs">
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="BlinkLed.resx">
+      <DependentUpon>BlinkLed.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBarSet.resx">
+      <DependentUpon>frmBarSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDataShow.resx">
+      <DependentUpon>frmDataShow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelp.en-US.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHelp.resx">
+      <DependentUpon>frmHelp.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJiLiang.en-US.resx">
+      <DependentUpon>frmJiLiang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJiLiang.resx">
+      <DependentUpon>frmJiLiang.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmKB.resx">
+      <DependentUpon>frmKB.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmList.en-US.resx">
+      <DependentUpon>frmList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmList.resx">
+      <DependentUpon>frmList.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.en-US.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMideaSn.en-US.resx">
+      <DependentUpon>frmMideaSn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMideaSn.resx">
+      <DependentUpon>frmMideaSn.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassWord.en-US.resx">
+      <DependentUpon>frmPassWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassWord.resx">
+      <DependentUpon>frmPassWord.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuXian.resx">
+      <DependentUpon>frmQuXian.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReport.resx">
+      <DependentUpon>frmReport.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSend.en-US.resx">
+      <DependentUpon>frmSend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSend.resx">
+      <DependentUpon>frmSend.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSet.en-US.resx">
+      <DependentUpon>frmSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSet.resx">
+      <DependentUpon>frmSet.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSys.en-US.resx">
+      <DependentUpon>frmSys.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSys.resx">
+      <DependentUpon>frmSys.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTest.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>frmTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuXianControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>QuXianControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="rptReport.rdlc" />
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="QuXianControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="QuXianControl.Designer.cs">
+      <DependentUpon>QuXianControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="xAxis.cs" />
+    <Compile Include="yAxis.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ai_ %2814%29.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="stdole">
+      <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
