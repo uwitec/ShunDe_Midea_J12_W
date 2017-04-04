@@ -661,11 +661,16 @@ namespace NewMideaProgram
                     mError.AddErrData("7017_Error", "7017通讯失败");
                 }
             }
-            cFt2010 m2010 = new cFt2010(com, 1, 6);
-            if (!m2010.Ft2010Init())
+            cSset m2010 = new cSset(com, 1, 250, 30, cSset.ListVol.SanXiang);
+            if (!m2010.SsetInit())
             {
-                mError.AddErrData("FT3000", "2010通讯失败");
+                mError.AddErrData("FT3000", "电参数表通讯失败");
             }
+            //cFt2010 m2010 = new cFt2010(com, 1, 6);
+            //if (!m2010.Ft2010Init())
+            //{
+            //    mError.AddErrData("FT3000", "2010通讯失败");
+            //}
             #endregion
             while (!IsOutSystem)//系统没有退出
             {
@@ -711,7 +716,9 @@ namespace NewMideaProgram
                 }
                 index = 6;
                 //读电参数
-                if (m2010.Ft2010Read(ref Ft2010_Read))
+
+                //if (m2010.Ft2010Read(ref Ft2010_Read))
+                if(m2010.SsetRead(ref Ft2010_Read))
                 {
                     Read2010Err = 0;
                     mError.DelErrData("FT3000");
