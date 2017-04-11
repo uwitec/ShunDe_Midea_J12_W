@@ -27,7 +27,7 @@ namespace System
             get { return errStr; }
             set { errStr = value; }
         }
-        int timeOut = 300;//超时时间(ms)
+        int timeOut = 3;//超时时间(ms)
         /// <summary>
         ///读写串口超时时间,单位(ms)
         /// </summary>
@@ -115,18 +115,9 @@ namespace System
                     mReadBuff[4] = (double)tempLong[3] * mCur / 10000f;
                     mReadBuff[5] = (double)tempLong[5] * mCur / 10000f;
 
-                    if (tempLong[14] < 32768)
-                    {
-                        mReadBuff[6] = (double)tempLong[14] * mCur * mVol / 10000f;
-                    }
-                    if (tempLong[15] < 32768)
-                    {
-                        mReadBuff[7] = (double)tempLong[15] * mCur * mVol / 10000f;
-                    }
-                    if (tempLong[16] < 32768)
-                    {
-                        mReadBuff[8] = (double)tempLong[16] * mCur * mVol / 10000f;
-                    }
+                    mReadBuff[6] = (double)tempLong[14] * mCur * mVol / 10000f;
+                    mReadBuff[7] = (double)tempLong[15] * mCur * mVol / 10000f;
+                    mReadBuff[8] = (double)tempLong[16] * mCur * mVol / 10000f;
                 }
             }
             return returnValue;
