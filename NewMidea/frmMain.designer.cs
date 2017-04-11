@@ -42,6 +42,7 @@
             this.lblInfo = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.lblShouFu = new System.Windows.Forms.Label();
+            this.quXianControl1 = new System.Drawing.QuXianControl();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblResult = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -96,7 +97,6 @@
             this.lblVol = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.quXianControl1 = new System.Drawing.QuXianControl();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -202,6 +202,35 @@
             resources.ApplyResources(this.lblShouFu, "lblShouFu");
             this.lblShouFu.ForeColor = System.Drawing.Color.Black;
             this.lblShouFu.Name = "lblShouFu";
+            // 
+            // quXianControl1
+            // 
+            resources.ApplyResources(this.quXianControl1, "quXianControl1");
+            this.quXianControl1.DrawBackColor = System.Drawing.Color.Black;
+            this.quXianControl1.Image = ((System.Drawing.Bitmap)(resources.GetObject("quXianControl1.Image")));
+            this.quXianControl1.IsMainNet = true;
+            this.quXianControl1.IsMinorNet = true;
+            this.quXianControl1.IsTwoYAxis = true;
+            this.quXianControl1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.quXianControl1.LineFont = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.quXianControl1.LinePen = System.Drawing.Color.Green;
+            this.quXianControl1.MainDashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+            this.quXianControl1.MinorDashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.quXianControl1.Name = "quXianControl1";
+            this.quXianControl1.Origin = new System.Drawing.Point(40, 20);
+            this.quXianControl1.PartLineFont = new System.Drawing.Font("宋体", 8F, System.Drawing.FontStyle.Bold);
+            this.quXianControl1.RightChanelNameWidth = 70;
+            this.quXianControl1.XAxisMax = 240D;
+            this.quXianControl1.XAxisMin = 0D;
+            this.quXianControl1.XAxisTitle = "时间(S)";
+            this.quXianControl1.XPart = 12;
+            this.quXianControl1.YAxisMax = 10D;
+            this.quXianControl1.YAxisMaxRight = 1000D;
+            this.quXianControl1.YAxisMin = 0D;
+            this.quXianControl1.YAxisMinRight = 0D;
+            this.quXianControl1.YAxisTitle = "电流(A),温度(℃),压力(Mpa)";
+            this.quXianControl1.YAxisTitleRight = "功率(W)";
+            this.quXianControl1.YPart = 10;
             // 
             // panel4
             // 
@@ -625,35 +654,6 @@
             this.panel1.Controls.Add(this.label3);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
-            // 
-            // quXianControl1
-            // 
-            resources.ApplyResources(this.quXianControl1, "quXianControl1");
-            this.quXianControl1.DrawBackColor = System.Drawing.Color.Black;
-            this.quXianControl1.Image = ((System.Drawing.Bitmap)(resources.GetObject("quXianControl1.Image")));
-            this.quXianControl1.IsMainNet = true;
-            this.quXianControl1.IsMinorNet = true;
-            this.quXianControl1.IsTwoYAxis = true;
-            this.quXianControl1.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.quXianControl1.LineFont = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.quXianControl1.LinePen = System.Drawing.Color.Green;
-            this.quXianControl1.MainDashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-            this.quXianControl1.MinorDashStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.quXianControl1.Name = "quXianControl1";
-            this.quXianControl1.Origin = new System.Drawing.Point(40, 20);
-            this.quXianControl1.PartLineFont = new System.Drawing.Font("宋体", 8F, System.Drawing.FontStyle.Bold);
-            this.quXianControl1.RightChanelNameWidth = 70;
-            this.quXianControl1.XAxisMax = 600D;
-            this.quXianControl1.XAxisMin = 0D;
-            this.quXianControl1.XAxisTitle = "时间(S)";
-            this.quXianControl1.XPart = 15;
-            this.quXianControl1.YAxisMax = 30D;
-            this.quXianControl1.YAxisMaxRight = 6000D;
-            this.quXianControl1.YAxisMin = 0D;
-            this.quXianControl1.YAxisMinRight = 0D;
-            this.quXianControl1.YAxisTitle = "电流(A),温度(℃),压力(Mpa)";
-            this.quXianControl1.YAxisTitleRight = "功率(W)";
-            this.quXianControl1.YPart = 15;
             // 
             // frmMain
             // 
