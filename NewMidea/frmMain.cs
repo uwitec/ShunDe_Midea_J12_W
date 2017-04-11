@@ -66,7 +66,7 @@ namespace NewMideaProgram
 
         public static double[] dataRead = new double[cMain.DataAll];
         public static double[] dataShow = new double[cMain.DataShow];
-        cError mError = new cError(); 
+        cError mError = new cError();
         cPQMachine mPQ;
         string Temp_Step_SnCode = "";
         public static int InitSnJiQi = 0;
@@ -157,30 +157,30 @@ namespace NewMideaProgram
             }
             return result;
         }
-        private void FlushControlText(Label sender, string data,ErrDataEnum errDataEnum)
+        private void FlushControlText(Label sender, string data, ErrDataEnum errDataEnum)
         {
             this.CrossThreadCalls(() =>
+            {
+                sender.Text = data;
+                switch (errDataEnum)
                 {
-                    sender.Text = data;
-                    switch (errDataEnum)
-                    {
-                        case ErrDataEnum.Info:
-                            sender.ForeColor = Color.Black;
-                            sender.BackColor = this.BackColor;
-                            sender.Font = new Font(new Font("Times New Roman", 12), FontStyle.Regular);
-                            break;
-                        case ErrDataEnum.Error:
-                            sender.ForeColor = Color.Red;
-                            sender.BackColor = Color.LightGreen;
-                            sender.Font = new Font(new Font("Times New Roman", 14), FontStyle.Bold);
-                            break;
-                        case ErrDataEnum.Protect:
-                            sender.ForeColor = Color.Blue;
-                            sender.BackColor = Color.Yellow;
-                            sender.Font = new Font(new Font("Times New Roman", 14), FontStyle.Bold);
-                            break;
-                    }
-                });
+                    case ErrDataEnum.Info:
+                        sender.ForeColor = Color.Black;
+                        sender.BackColor = this.BackColor;
+                        sender.Font = new Font(new Font("Times New Roman", 12), FontStyle.Regular);
+                        break;
+                    case ErrDataEnum.Error:
+                        sender.ForeColor = Color.Red;
+                        sender.BackColor = Color.LightGreen;
+                        sender.Font = new Font(new Font("Times New Roman", 14), FontStyle.Bold);
+                        break;
+                    case ErrDataEnum.Protect:
+                        sender.ForeColor = Color.Blue;
+                        sender.BackColor = Color.Yellow;
+                        sender.Font = new Font(new Font("Times New Roman", 14), FontStyle.Bold);
+                        break;
+                }
+            });
         }
         private bool init()//程序开始初始化
         {
@@ -369,7 +369,7 @@ namespace NewMideaProgram
                     break;
                 case "Y":
                     Plc_Out_MPoint["总复位"] = true; Temp_Out_MPoint["总复位"] = true;
-                    Thread.Sleep(1000);                    
+                    Thread.Sleep(1000);
                     System.Diagnostics.Process.Start("ShutDown", "-p -f");
                     break;
             }
@@ -387,9 +387,9 @@ namespace NewMideaProgram
                 }
             }
             udpSend.fUdpSend(udpSend.pRemoteHostIp, udpSend.pRemoteHostPort, "U~OK");
-            if (File.Exists(cMain.AppPath+"\\UpdataByNet.exe"))
+            if (File.Exists(cMain.AppPath + "\\UpdataByNet.exe"))
             {
-                Process.Start(cMain.AppPath+"\\UpdataByNet.exe", "");
+                Process.Start(cMain.AppPath + "\\UpdataByNet.exe", "");
             }
             frmClose();
             this.Close();
@@ -440,8 +440,9 @@ namespace NewMideaProgram
                 {
                     if (Temp_Out_MPoint[cMain.DataPlcMPointStr[i]])
                     {
-                        WritePlc(() => {
-                            if(!mFxplc.FxPlc_WriteM(Plc_M_MPoint[cMain.DataPlcMPointStr[i]], Plc_Out_MPoint[cMain.DataPlcMPointStr[i]]))
+                        WritePlc(() =>
+                        {
+                            if (!mFxplc.FxPlc_WriteM(Plc_M_MPoint[cMain.DataPlcMPointStr[i]], Plc_Out_MPoint[cMain.DataPlcMPointStr[i]]))
                             {
                                 mFxplc.FxPlc_WriteM(Plc_M_MPoint[cMain.DataPlcMPointStr[i]], Plc_Out_MPoint[cMain.DataPlcMPointStr[i]]);
                             }
@@ -454,12 +455,12 @@ namespace NewMideaProgram
                     if (Temp_Out_MReadPoint[cMain.ReadPlcMPointStr[i]])
                     {
                         WritePlc(() =>
+                        {
+                            if (!mFxplc.FxPlc_WriteM(Plc_M_MReadPoint[cMain.ReadPlcMPointStr[i]], Plc_Out_MReadPoint[cMain.ReadPlcMPointStr[i]]))
                             {
-                                if (!mFxplc.FxPlc_WriteM(Plc_M_MReadPoint[cMain.ReadPlcMPointStr[i]], Plc_Out_MReadPoint[cMain.ReadPlcMPointStr[i]]))
-                                {
-                                    mFxplc.FxPlc_WriteM(Plc_M_MReadPoint[cMain.ReadPlcMPointStr[i]], Plc_Out_MReadPoint[cMain.ReadPlcMPointStr[i]]);
-                                }
-                            });
+                                mFxplc.FxPlc_WriteM(Plc_M_MReadPoint[cMain.ReadPlcMPointStr[i]], Plc_Out_MReadPoint[cMain.ReadPlcMPointStr[i]]);
+                            }
+                        });
                         Temp_Out_MReadPoint[cMain.ReadPlcMPointStr[i]] = false;
                     }
                 }
@@ -661,11 +662,16 @@ namespace NewMideaProgram
                     mError.AddErrData("7017_Error", "7017通讯失败");
                 }
             }
-            cFt2010 m2010 = new cFt2010(com, 1, 6);
-            if (!m2010.Ft2010Init())
+            cSset m2010 = new cSset(com, 1, 250, 30, cSset.ListVol.SanXiang);
+            if (!m2010.SsetInit())
             {
-                mError.AddErrData("FT3000", "2010通讯失败");
+                mError.AddErrData("FT3000", "电参数表通讯失败");
             }
+            //cFt2010 m2010 = new cFt2010(com, 1, 6);
+            //if (!m2010.Ft2010Init())
+            //{
+            //    mError.AddErrData("FT3000", "2010通讯失败");
+            //}
             #endregion
             while (!IsOutSystem)//系统没有退出
             {
@@ -711,7 +717,9 @@ namespace NewMideaProgram
                 }
                 index = 6;
                 //读电参数
-                if (m2010.Ft2010Read(ref Ft2010_Read))
+
+                //if (m2010.Ft2010Read(ref Ft2010_Read))
+                if (m2010.SsetRead(ref Ft2010_Read))
                 {
                     Read2010Err = 0;
                     mError.DelErrData("FT3000");
@@ -730,7 +738,7 @@ namespace NewMideaProgram
                         {
                             dataRead[index++] = -99;
                         }
-                        mError.AddErrData("FT3000","读电参数模块失败");
+                        mError.AddErrData("FT3000", "读电参数模块失败");
                     }
                     else
                     {
@@ -822,7 +830,7 @@ namespace NewMideaProgram
                         //}
                         //else
                         //{
-                            ReadBarCodeOver(ReadDataBarCode);
+                        ReadBarCodeOver(ReadDataBarCode);
                         //}
                     }
                 }
@@ -886,7 +894,7 @@ namespace NewMideaProgram
             {
                 if (cMain.DataShowTitle[1].Contains("(A)"))
                 {
-                    CheckProtect(dataShow[1], new double[] { dataShow[3],dataShow[4] });//检测数据保护(过流,过压等)
+                    CheckProtect(dataShow[1], new double[] { dataShow[3], dataShow[4] });//检测数据保护(过流,过压等)
                 }
                 else
                 {
@@ -1380,7 +1388,7 @@ namespace NewMideaProgram
             }
             nowStatue.CurrentId = tmpStepID;
             nowStatue.StepStartTime = Environment.TickCount / 1000;
-            nowStatue.StepCurTime = 0; 
+            nowStatue.StepCurTime = 0;
             if (nowStatue.CurrentId >= cModeSet.StepCount)
             {
                 EndOut();
@@ -1694,7 +1702,7 @@ namespace NewMideaProgram
         public static void initTestData(frmMain mFrmMain)//初始化所有数据
         {
             int i, j;
-            frmSet.DataFileToClass(cMain.AppPath+"\\ID\\" + cMain.mSysSet.mPrevId + ".txt", out cMain.mModeSet, true);
+            frmSet.DataFileToClass(cMain.AppPath + "\\ID\\" + cMain.mSysSet.mPrevId + ".txt", out cMain.mModeSet, true);
 
             cMain.mNetResult.RunResult.mBar = cMain.mSysSet.mPrevBar;
             cMain.mNetResult.RunResult.mId = cMain.mSysSet.mPrevId;
@@ -1718,7 +1726,7 @@ namespace NewMideaProgram
 
             cMain.mMesResult.RunResult = cMain.mNetResult.RunResult;
             cMain.mMesResult.StepResult.Clear();
-            for ( i = 0; i < cMain.DataShow; i++)
+            for (i = 0; i < cMain.DataShow; i++)
             {
                 if (cMain.mModeSet.mShow[i])
                 {
@@ -1735,7 +1743,7 @@ namespace NewMideaProgram
             mFrmMain.LblMode.Text = cMain.mModeSet.mMode;
             string[] tempStr = cMain.BiaoZhunJiStr[cMain.IndexLanguage].Split(',');
             mFrmMain.LblBiaoZJ.Text = tempStr[cMain.mModeSet.mBiaoZhunJi];
-            
+
             mFrmMain.lblVol.Text = cMain.DianYuanStr.Split(',')[cMain.mModeSet.mElect];
             mFrmMain.LblSetTime.Text = "";
             mFrmMain.LblCurTime.Text = "";
@@ -1803,7 +1811,7 @@ namespace NewMideaProgram
                 mFrmMain.dataGridStep.Columns[i].SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
-            for (i = cModeSet.StepCount-1; i >= 0; i--)
+            for (i = cModeSet.StepCount - 1; i >= 0; i--)
             {
                 if (cMain.mModeSet.mSetTime[i] > 0)
                 {
@@ -1892,7 +1900,7 @@ namespace NewMideaProgram
         {
             bool returnResult = false;
 
-            DirectoryInfo di = new DirectoryInfo(cMain.AppPath+"\\ID\\");
+            DirectoryInfo di = new DirectoryInfo(cMain.AppPath + "\\ID\\");
             int index = 0;
             string[] ListId = new string[di.GetFiles("*.txt").Length];
             foreach (FileInfo fi in di.GetFiles("*.txt"))
@@ -2103,7 +2111,7 @@ namespace NewMideaProgram
                 }.Start();
             }
         }
-        private void SendValueToComputer(string sendStr,ref bool result)
+        private void SendValueToComputer(string sendStr, ref bool result)
         {
             long startTime = 0;
             int timeOut = 2000;
@@ -2178,7 +2186,7 @@ namespace NewMideaProgram
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("是否确定要退出测试程序?", "请选择", MessageBoxButtons.YesNo, MessageBoxIcon.Question,MessageBoxDefaultButton.Button1) == DialogResult.No)
+            if (MessageBox.Show("是否确定要退出测试程序?", "请选择", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.No)
             {
                 e.Cancel = true;
             }
